@@ -1,0 +1,12 @@
+[
+  {
+    "Product": "Xbox",
+    "url": "https://www.xbox.com/en-IN/",
+    "login_url": "https://login.live.com/oauth20_authorize.srf?client_id=1f907974-e22b-4810-a9de-d9647380c97e&scope=xboxlive.signin+openid+profile+offline_access&redirect_uri=https%3a%2f%2fwww.xbox.com%2fauth%2fmsa%3faction%3dloggedIn%26locale_hint%3den-IN&response_type=code&state=eyJpZCI6IjAxOWMxNTQ0LWRlMmYtN2IxZC1iY2Q0LWRhYzYxNGIwZWQ4YyIsIm1ldGEiOnsiaW50ZXJhY3Rpb25UeXBlIjoicmVkaXJlY3QifX0%3d%7chttps%253A%252F%252Fwww.xbox.com%252Fen-IN%252F&response_mode=fragment&nonce=019c1544-de2f-7e52-a86c-6f0d52ef84bc&prompt=select_account&code_challenge=GVW8jIeSzhKEfPHOfY6c-SUPh5eJktX5fcaMScveigU&code_challenge_method=S256&x-client-SKU=msal.js.browser&x-client-Ver=3.20.0&uaid=33cde540ca4541caa2d4262e74fd0994&msproxy=1&issuer=mso&tenant=consumers&ui_locales=en-US&client_info=1&epctrc=pUiyj7fvZjG2c71yZ4sXS%2bYBcyevgLcFqvdNXpDjCvs%3d2%3a1%3aCANARY%3avnFW3IYU3T%2f6ssa81kMek7ekod8wK5a3D%2f8%2fnDJ%2b4H8%3d&epct=PAQABDgEAAACvnsHKEvvRQb3Bz3Qc7wnaqyMcIJYtYyKiSbzV52QDbt5-C69n1sq6AjPmIH-jpuXE80wYOOig2QemW_H0oi-GXXao5dCB2w72b11SbtFXzhALR2gRmMRn_VpEZpXEqsVL-pkbSpqb76bf-ObFqqJVzp0f4Oyje2L2rayrIRqqb56bDqFuFyLmFWq6thGFtEz_ceUoYqquC-1AZ55BxqR4Z5sk5tJj7_XzGh7Ei5y5YSAA&jshs=0#",
+    "timeout": {
+        "min": 5000,
+        "mid": 10000,
+        "max": 30000
+    }
+  }
+]
