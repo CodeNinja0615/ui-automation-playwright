@@ -6,3 +6,4 @@ node_modules/
 /blob-report/
 /playwright/.cache/
 /playwright/.auth/
+/test-data/login_user_data.json

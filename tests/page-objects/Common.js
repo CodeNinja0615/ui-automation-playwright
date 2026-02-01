@@ -1,26 +1,48 @@
-import {Page, Locator} from '@playwright/test';
-export default class Common{
+import { Page, Locator } from '@playwright/test';
+import envJson from "../../test-data/url.json" with { type: "json" };
+import login_creds from "../../test-data/login_user_data.json"
+const timeout = envJson[0].timeout;
+export default class Common {
     /**
      * 
      * @param {Page} page 
      */
-    constructor(page){
+    constructor(page) {
         this.page = page
         this.input = (text) => page.locator(`//input[@id='${text}']`)
         this.spanText = (text) => page.locator(`//span[text()='${text}']`)
         this.button = (text) => page.locator(`//button[text()='${text}']`);
+        this.spinner = () => page.locator(`//div[@class='XboxSpinner-module__spinnerContainer___tyosA']`);
+        this.headersOption = (text1) => page.locator(`//button[contains(text(), '${text1}')]`);
+        this.headersDropdown = (text1, text2) => page.locator(`//button[contains(text(), '${text1}')]/following-sibling::ul/li/a[text()='${text2}']`);
     }
     /**
      * 
-     * @param {Locator} element 
+     * @param {Locator} locator 
      */
-    async clickAnElement(element){
-        await element.isVisible();
-        await element.waitFor({state: 'attached'});
-        await element.click();
+    async clickAnElement(locator) {
+        await locator.isVisible();
+        await locator.waitFor({ state: 'attached' });
+        await locator.click();
     }
-
-    async javaScriptClick(element){
-
+    /**
+     * 
+     * @param {Locator} locator 
+     */
+    async javaScriptClick(locator) {
+        await locator.evaluate(el => el.click());
+    }
+    /**
+     * 
+     * @param {string} username 
+     * @returns {string}
+     */
+    getCredentials(username) {
+        for (const cred of Object.values(login_creds)) {
+            if (cred.username === username) {
+                return cred.password;
+            }
+        }
+        return 'NO PASSWORD FOR GIVEN USERNAME';
     }
 }

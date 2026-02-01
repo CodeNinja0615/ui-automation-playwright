@@ -17,16 +17,16 @@ class LandingPage extends Common {
     async loginApplication(url, username, password) {
         await this.page.goto(url);
         await this.page.waitForLoadState('networkidle')
-        await this.input('usernameEntry').waitFor({state: 'visible', timeout: timeout.mid});
-        await this.input('usernameEntry').fill(username);
+        await this.input('usernameEntry').waitFor({ state: 'visible', timeout: timeout.mid });
+        await this.input('usernameEntry').fill(`${username}@outlook.com`);
         await this.clickAnElement(this.button('Next'));
-        await this.headerText('Sign in another way').waitFor({state: 'visible', timeout: timeout.mid});
+        await this.headerText('Sign in another way').waitFor({ state: 'visible', timeout: timeout.mid });
         await this.clickAnElement(this.spanText('Use your password'));
         await this.input('passwordEntry').fill(password);
         await this.clickAnElement(this.button('Next'));
-        if(await this.headerText('Stay signed in?').isVisible()){
-            await this.clickAnElement(this.button('Yes'));
-        }
+        await this.headerText('Stay signed in?').waitFor({ state: 'visible', timeout: timeout.mid });
+        await this.clickAnElement(this.button('Yes'));
+
     }
 }
 export { LandingPage };
