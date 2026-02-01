@@ -1,0 +1,8 @@
+beforeEach(``, async({ page }){ //Before each can have page
+
+});
+
+beforeAll(``, async({ browser }){ //Before all can have browser only
+    const context = await browser.newContext()
+    const page = await context.newPage();
+});

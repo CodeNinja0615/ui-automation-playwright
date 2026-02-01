@@ -1,4 +1,10 @@
 {
-    "username": "sameerakhtar1516",
-    "searchTitle": "Resident Evil Village"
+  "username": "sameerakhtar1516",
+  "gamePassHeaders": ["Join Game Pass", "Browse Games", "Deals with Game Pass"],
+  "gamePassTabScreenHeaders": [
+    "XBOX GAME PASS",
+    "XBOX GAME PASS GAMES",
+    "DEALS WITH XBOX GAME"
+  ],
+  "searchTitle": "Resident Evil Village"
 }

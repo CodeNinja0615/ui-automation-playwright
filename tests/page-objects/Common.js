@@ -13,8 +13,7 @@ export default class Common {
         this.spanText = (text) => page.locator(`//span[text()='${text}']`)
         this.button = (text) => page.locator(`//button[text()='${text}']`);
         this.spinner = () => page.locator(`//div[@class='XboxSpinner-module__spinnerContainer___tyosA']`);
-        this.headersOption = (text1) => page.locator(`//button[contains(text(), '${text1}')]`);
-        this.headersDropdown = (text1, text2) => page.locator(`//button[contains(text(), '${text1}')]/following-sibling::ul/li/a[text()='${text2}']`);
+        this.headersDropdown = (text1, text2) => page.locator(`//button[contains(text(), '${text1}')]/following-sibling::ul/li/a[contains(text(), '${text2}')]`);
     }
     /**
      * 
