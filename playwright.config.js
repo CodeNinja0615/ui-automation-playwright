@@ -18,16 +18,16 @@ export default defineConfig({
   fullyParallel: false,
   globalSetup: '',
   globalTeardown: '',
-  timeout: 3 * 60000,
+  timeout: 3 * 20000,
   expect: {
     timeout: 7000
   },
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
-  retries: process.env.CI ? 2 : 0,
+  retries: process.env.CI ? 0 : 0,
   /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 1 : undefined,
+  workers: process.env.CI ? 1 : 1,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
@@ -36,21 +36,21 @@ export default defineConfig({
     // baseURL: 'http://localhost:3000',
     headless: false,
     browserName: 'chromium',
-    viewport: { width: 1920, height: 1080 },
-    launchOptions: {
-      args: ['--start-maximized']
-    },
     screenshot: 'only-on-failure',
+    viewport: null,
+    launchOptions: {
+      args: ['--start-maximized'], // Start the browser maximized // '--start-fullscreen'
+    },
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'retain-on-failure',
   },
 
   /* Configure projects for major browsers */
-  projects: [
-    {
-      name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
-    },
+  // projects: [
+  //   {
+  //     name: 'chrome',
+  //     use: { ...devices['Desktop Chrome'] },
+  //   },
 
     // {
     //   name: 'firefox',
@@ -81,7 +81,7 @@ export default defineConfig({
     //   name: 'Google Chrome',
     //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
     // },
-  ],
+  // ],
 
   /* Run your local dev server before starting the tests */
   // webServer: {

@@ -1,0 +1,12 @@
+[
+  {
+    "username": "sameerakhtar1516",
+    "testcase": "Verify Profile Page is loading and Gamer Tag is displayed",
+    "gameTagBase": "Garou",
+    "gamerTagSuffix": "#8784"
+  },
+  {
+    "username": "sameerakhtar1516",
+    "testcase": "Verify cart is accessible for the user"
+  }
+]

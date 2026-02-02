@@ -1,10 +1,16 @@
 {
   "username": "sameerakhtar1516",
-  "gamePassHeaders": ["Join Game Pass", "Browse Games", "Deals with Game Pass"],
+  "testcase": "Verify all header tabs are loading in Game Pass dropdown",
+  "gamePassHeaders": [
+    "Join Game Pass",
+    "Browse Games",
+    "Deals with Game Pass",
+    "Xbox Cloud Gaming"
+  ],
   "gamePassTabScreenHeaders": [
     "XBOX GAME PASS",
     "XBOX GAME PASS GAMES",
-    "DEALS WITH XBOX GAME"
-  ],
-  "searchTitle": "Resident Evil Village"
+    "DEALS WITH XBOX GAME",
+    "XBOX CLOUD GAMING"
+  ]
 }
