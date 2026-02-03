@@ -26,7 +26,7 @@ test.describe(`@Smoke ${data_set[0].testcase}`, async () => {
         await landingPage.homePage().waitFor({ state: 'visible', timeout: timeout.mid });
         expect(await landingPage.homePage().isVisible()).toBe(true);
     });
-    test(`Navigate to "Profile Page"`, async () => {
+    test(`Navigate to "Profile Page" and verify the Gamer Tag`, async () => {
         await profilePage.navigateToProfile('Garou8784');
         await profilePage.gamerTag(data_set[0].gameTagBase).waitFor({ state: 'visible', timeout: timeout.mid });
         expect(await profilePage.gamerTag(data_set[0].gameTagBase).isVisible()).toBe(true);

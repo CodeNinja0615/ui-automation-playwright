@@ -1,10 +1,10 @@
 import { test, expect } from "@playwright/test";
 import { PageObjectManager } from "../../page-objects/PageObjectManager";
 import { LandingPage } from "../../page-objects/LandingPage";
+import { ProductDescriptionPage } from "../../page-objects/ProductDescriptionPage";
 import envJson from "../../../test-data/url.json" with { type: "json" };
 import data_set from "../../../test-data/xboxTest104.json" with { type: "json" };
 import "../../hooks/globalHooks";
-import { ProductDescriptionPage } from "../../page-objects/ProductDescriptionPage";
 const username = data_set.username;
 const envData = envJson[0];
 const timeout = envJson[0].timeout;
@@ -23,7 +23,7 @@ test.describe(`@Smoke ${data_set.testcase}`, async () => {
         productPage = pom.getProductDescriptionPage();
         const password = landingPage.getCredentials(username);
         await landingPage.loginApplication(envData.login_url, username, password);
-        await landingPage.homePage().waitFor({state: 'visible', timeout: timeout.mid });
+        await landingPage.homePage().waitFor({ state: 'visible', timeout: timeout.mid });
         expect(await landingPage.homePage().isVisible()).toBe(true);
     });
     test(`Search ${data_set.titleToSearch} in search bar`, async () => {

@@ -5,6 +5,7 @@ test.afterEach(async ({}, testInfo) => {
 
   if (status === 'passed') {
     console.log(`✅ PASSED → ${testInfo.title}`);
+    console.log(`${testInfo.titlePath}`);
   }
 
   if (status === 'failed') {
