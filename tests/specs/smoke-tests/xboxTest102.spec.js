@@ -23,7 +23,7 @@ test.describe(`@Smoke ${data_set[0].testcase}`, async () => {
         profilePage = pom.getProfilePage();
         const password = landingPage.getCredentials(username);
         await landingPage.loginApplication(envData.login_url, username, password);
-        await landingPage.homePage().waitFor({ timeout: timeout.mid });
+        await landingPage.homePage().waitFor({ state: 'visible', timeout: timeout.mid });
         expect(await landingPage.homePage().isVisible()).toBe(true);
     });
     test(`Navigate to "Profile Page"`, async () => {

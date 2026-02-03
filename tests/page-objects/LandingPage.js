@@ -35,5 +35,15 @@ class LandingPage extends Common {
         await this.headerText('Stay signed in?').waitFor({ state: 'visible', timeout: timeout.mid });
         await this.clickAnElement(this.button('Yes'));
     }
+    /**
+     * To search title from home
+     * @param {string} titleName 
+     */
+    async searchTitleFromHome(titleName) {
+        await this.profileName('Garou8784').waitFor({ state: 'visible', timeout: timeout.max });
+        await this.clickAnElement(this.spanText('Search'));
+        await this.input('cli_shellHeaderSearchInput').pressSequentially(titleName);
+        await this.searchedTitles(titleName).nth(0).waitFor({ state: 'visible', timeout: timeout.max });
+    }
 }
 export { LandingPage };
