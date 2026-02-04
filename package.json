@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test":"HEADLESS=true npx playwright test"
+    "test":"HEADLESS=true npx playwright test",
+    "xboxTest103":"HEADLESS=true npx playwright test '/tests/specs/smoke-tests/xboxTest103.spec.js'"
   },
   "keywords": [],
   "author": "",

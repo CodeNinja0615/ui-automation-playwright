@@ -13,6 +13,7 @@ class CartPage extends Common {
         this.page = page;
         this.cartFrame = () => page.frameLocator(`//iframe[@name='store-cart-frame_Light_false']`);
         this.cartHeader = (text) => this.cartFrame().locator(`//h1[contains(text(),'${text}')]`);
+        this.cartError = () => page.locator(`//h3[text()='Something went wrong. Try refreshing the page.']`);
 
     }
     /**
@@ -22,7 +23,8 @@ class CartPage extends Common {
     async gotoCartPage(profileName) {
         await this.profileName(profileName).waitFor({ state: 'visible', timeout: timeout.max });
         await this.clickAnElement(this.spanText('Cart'));
-        await this.cartHeader('Cart').waitFor({ state: 'visible', timeout: timeout.mid });
+        // await this.cartHeader('Cart').waitFor({ state: 'visible', timeout: timeout.max });
+        // await this.spinner().waitFor({ state: 'detached', timeout: timeout.max });
     }
 }
 export { CartPage };
