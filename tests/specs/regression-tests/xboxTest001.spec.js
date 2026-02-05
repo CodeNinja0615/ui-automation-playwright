@@ -19,7 +19,7 @@ let searchPage;
 test.describe.configure({ mode: 'serial' });
 test.describe(`@Regression ${data_set.testcase}`, async () => {
     let page;
-    test.beforeAll(``, async ({ browser }) => {
+    test.beforeAll(`Navigate to ${envData} Web App`, async ({ browser }) => {
         const context = await browser.newContext();
         page = await context.newPage();
         const pom = new PageObjectManager(page);
