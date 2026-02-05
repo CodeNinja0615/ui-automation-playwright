@@ -44,7 +44,7 @@ export default defineConfig({
         : ['--start-maximized'],
     },
     browserName: 'chromium',
-    screenshot: 'only-on-failure',
+    screenshot: 'on',
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'retain-on-failure',
   },

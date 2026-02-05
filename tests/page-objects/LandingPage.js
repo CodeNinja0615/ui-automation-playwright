@@ -11,7 +11,6 @@ class LandingPage extends Common {
     constructor(page) {
         super(page);
         this.page = page;
-        this.headerText = (text) => page.locator(`//h1[contains(text(),'${text}')]`);
         this.homePage = () => page.locator(`//a[@id='uhfCatLogo' and @aria-label='Xbox']`);
     }
     /**

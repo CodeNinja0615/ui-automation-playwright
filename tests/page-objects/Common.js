@@ -11,6 +11,7 @@ export default class Common {
         this.page = page
         this.input = (text) => page.locator(`//input[@id='${text}']`);
         this.spanText = (text) => page.locator(`//span[text()='${text}']`);
+        this.headerText = (text) => page.locator(`//h1[contains(text(),'${text}')]`);
         this.searchedTitles = (text) => page.locator(`//b[contains(text(), '${text}')]`);
         this.button = (text) => page.locator(`//button[text()='${text}']`);
         this.profileName = (text) => page.locator(`(//div[text()='${text}'])[1]`);
@@ -22,8 +23,8 @@ export default class Common {
      * @param {Locator} locator 
      */
     async clickAnElement(locator) {
-        await locator.isVisible();
-        await locator.waitFor({ state: 'attached' });
+        await locator.waitFor({state: 'visible', timeout: timeout.mid});
+        await locator.waitFor({ state: 'attached', timeout: timeout.mid });
         await locator.click();
     }
     /**
@@ -31,7 +32,10 @@ export default class Common {
      * @param {Locator} locator 
      */
     async javaScriptClick(locator) {
-        await locator.evaluate(el => el.click());
+        await locator.evaluate(el => {
+            el.waitFor({state: 'visible', timeout: timeout.mid});
+            el.click();
+        });
     }
     /**
      * 
