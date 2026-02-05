@@ -2,6 +2,7 @@
   "name": "ui-automation-playwright",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test":"HEADLESS=true npx playwright test",
     "xboxTest103":"HEADLESS=true npx playwright test '/tests/specs/smoke-tests/xboxTest103.spec.js'"
