@@ -1,14 +1,12 @@
-import { Page, Locator } from '@playwright/test';
 import envJson from "../../test-data/url.json" with { type: "json" };
 import Common from './Common';
-import { text } from 'node:stream/consumers';
 const timeout = envJson[0].timeout;
 
 
 class ProfilePage extends Common {
     /**
      * 
-     * @param {Page} page 
+     * @param {import("@playwright/test").Page} page 
      */
     constructor(page) {
         super(page);

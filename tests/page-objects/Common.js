@@ -1,11 +1,10 @@
-import { Page, Locator } from '@playwright/test';
 import envJson from "../../test-data/url.json" with { type: "json" };
-import login_creds from "../../test-data/login_user_data.json"
+import login_creds from "../../test-data/login_user_data.json" with { type: "json" };
 const timeout = envJson[0].timeout;
 export default class Common {
     /**
      * 
-     * @param {Page} page 
+     * @param {import("@playwright/test").Page} page 
      */
     constructor(page) {
         this.page = page
@@ -20,7 +19,7 @@ export default class Common {
     }
     /**
      * 
-     * @param {Locator} locator 
+     * @param {import("@playwright/test").Locator} locator 
      */
     async clickAnElement(locator) {
         await locator.waitFor({state: 'visible', timeout: timeout.mid});

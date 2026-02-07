@@ -34,6 +34,7 @@ export default defineConfig({
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
     // baseURL: 'http://localhost:3000',
+    actionTimeout: 10000,
     headless: !!process.env.CI || process.env.HEADLESS === 'true',
     viewport: !!process.env.CI || process.env.HEADLESS === 'true'
       ? { width: 1920, height: 1080 }
