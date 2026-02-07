@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "test":"HEADLESS=true npx playwright test",
-    "xboxTest103":"HEADLESS=true npx playwright test '/tests/specs/smoke-tests/xboxTest103.spec.js'"
+    "xboxTest103":"HEADLESS=true npx playwright test '/tests/specs/smoke-tests/xboxTest103.spec.js'",
+    "xboxTest001":"HEADLESS=false npx playwright test '/tests/specs/regression-tests/xboxTest001.spec.js'"
   },
   "keywords": [],
   "author": "",
