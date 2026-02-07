@@ -10,7 +10,7 @@ class ProductDescriptionPage extends Common {
     constructor(page) {
         super(page);
         this.page = page;
-        this.productName = (text) => page.locator(`//h1[contains(text(), '${text}')]`)
+        this.productName = (text) => page.locator(`//h1[contains(text(), '${text}')]`);
     }
 
 }

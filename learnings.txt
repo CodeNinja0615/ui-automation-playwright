@@ -14,3 +14,14 @@ when class is exported like export default new ClassName(); or export ClassName 
 
 with "type": "module" always use @param {import("@playwright/test").Page} page in-line now with global import
 
+await page.click('#submit', { force: true }); force click the elemnt even if the real user couldn't
+
+
+Eslint and Husky setup
+
+npm install -D eslint @eslint/js \
+eslint-plugin-playwright \
+eslint-config-prettier \
+husky lint-staged
+npm install husky --save-dev
+

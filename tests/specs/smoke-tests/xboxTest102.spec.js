@@ -1,16 +1,14 @@
 import { test, expect } from "@playwright/test";
 import { PageObjectManager } from "../../page-objects/PageObjectManager";
-import { LandingPage } from "../../page-objects/LandingPage";
-import { ProfilePage } from "../../page-objects/ProfilePage";
 import envJson from "../../../test-data/url.json" with { type: "json" };
 import data_set from "../../../test-data/xboxTest102_103.json" with { type: "json" };
 import "../../hooks/globalHooks";
 const username = data_set[0].username;
 const envData = envJson[0];
 const timeout = envJson[0].timeout;
-/** @type {LandingPage} */
+/** @type {import('../../page-objects/LandingPage').LandingPage} */
 let landingPage;
-/** @type {ProfilePage} */
+/** @type {import('../../page-objects/ProfilePage').ProfilePage} */
 let profilePage;
 
 test.describe.configure({ mode: 'serial' });

@@ -4,16 +4,23 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test":"HEADLESS=true npx playwright test",
-    "xboxTest103":"HEADLESS=true npx playwright test '/tests/specs/smoke-tests/xboxTest103.spec.js'",
-    "xboxTest001":"HEADLESS=false npx playwright test '/tests/specs/regression-tests/xboxTest001.spec.js'"
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "test": "HEADLESS=true npx playwright test",
+    "xboxTest103": "HEADLESS=true npx playwright test '/tests/specs/smoke-tests/xboxTest103.spec.js'",
+    "xboxTest001": "HEADLESS=true npx playwright test '/tests/specs/regression-tests/xboxTest001.spec.js'"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "@playwright/test": "^1.58.0",
-    "@types/node": "^25.1.0"
+    "@types/node": "^25.1.0",
+    "eslint": "^10.0.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-playwright": "^2.5.1",
+    "lint-staged": "^16.2.7"
   }
 }
