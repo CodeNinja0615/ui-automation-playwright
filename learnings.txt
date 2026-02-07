@@ -11,3 +11,6 @@ imports and Class
 
 when class is exported like export {ClassName}; then import like import {ClassName} from '';
 when class is exported like export default new ClassName(); or export ClassName {body} then import like import ClassName from '' -->Singleton
+
+with "type": "module" always use @param {import("@playwright/test").Page} page in-line now with global import
+
