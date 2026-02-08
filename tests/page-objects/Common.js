@@ -13,16 +13,19 @@ export default class Common {
         this.headerText = (text) => page.locator(`//h1[contains(text(),'${text}')]`);
         this.searchedTitles = (text) => page.locator(`//b[contains(text(), '${text}')]`);
         this.button = (text) => page.locator(`//button[text()='${text}']`);
+        this.anchorTitle = (text) => page.locator(`//a[@title='${text}']`);
+        this.buttonTitle = (text) => page.locator(`//button[@title='${text}']`);
         this.profileName = (text) => page.locator(`(//div[text()='${text}'])[1]`);
         this.spinner = () => page.locator(`//div[@class='XboxSpinner-module__spinnerContainer___tyosA']`);
         this.headersDropdown = (text1, text2) => page.locator(`//button[contains(text(), '${text1}')]/following-sibling::ul/li/a[contains(text(), '${text2}')]`);
+        this.anchorText = (text) => page.locator(`//a[text()='${text}']`);
     }
     /**
      * 
      * @param {import("@playwright/test").Locator} locator 
      */
     async clickAnElement(locator) {
-        await locator.waitFor({state: 'visible', timeout: timeout.mid});
+        await locator.waitFor({ state: 'visible', timeout: timeout.mid });
         await locator.waitFor({ state: 'attached', timeout: timeout.mid });
         await locator.click();
     }
@@ -32,7 +35,7 @@ export default class Common {
      */
     async javaScriptClick(locator) {
         await locator.evaluate(el => {
-            el.waitFor({state: 'visible', timeout: timeout.mid});
+            el.waitFor({ state: 'visible', timeout: timeout.mid });
             el.click();
         });
     }
