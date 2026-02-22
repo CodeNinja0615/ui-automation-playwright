@@ -8,7 +8,12 @@
     "lint:fix": "eslint . --fix",
     "test": "HEADLESS=true npx playwright test",
     "xboxTest103": "HEADLESS=true npx playwright test '/tests/specs/smoke-tests/xboxTest103.spec.js'",
-    "xboxTest001": "HEADLESS=true npx playwright test '/tests/specs/regression-tests/xboxTest001.spec.js'"
+    "xboxTest001": "HEADLESS=true npx playwright test '/tests/specs/regression-tests/xboxTest001.spec.js'",
+    "allureServe": "allure serve allure-results",
+    "allureOpen": "allure open",
+    "allure:generate": "allure generate allure-results --clean -o allure-report",
+    "allure:open": "allure open allure-report",
+    "combineReport": "node ./node_modules/allure-single-html-file-js/combine.js allure-report"
   },
   "keywords": [],
   "author": "",
@@ -18,6 +23,8 @@
     "@eslint/js": "^10.0.1",
     "@playwright/test": "^1.58.0",
     "@types/node": "^25.1.0",
+    "allure-playwright": "^3.4.5",
+    "allure-single-html-file-js": "^0.0.6",
     "eslint": "^10.0.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-playwright": "^2.5.1",
