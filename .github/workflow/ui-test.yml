@@ -1,0 +1,69 @@
+name: Playwright UI Automation
+
+on:
+  workflow_dispatch:
+
+jobs:
+  ui-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1️⃣ Checkout repository
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      # 2️⃣ Setup Node
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      # 3️⃣ Install dependencies
+      - name: Install Dependencies
+        run: npm ci
+
+      # 4️⃣ Install Playwright (needed even for ui mode)
+      - name: Install Playwright
+        run: npx playwright install --with-deps
+
+      # 5️⃣ Setup Java (required for Allure)
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      # ✅ 6️⃣ Install Allure CLI globally
+      - name: Install Allure CLI
+        run: npm install -g allure-commandline
+
+      # 7️⃣ Run UI Tests
+      - name: Run Playwright Tests
+        run: npx playwright test
+        env:
+          BASE_URL: ${{ secrets.BASE_URL }}
+          USERNAME: ${{ secrets.USERNAME }}
+          PASSWORD: ${{ secrets.PASSWORD }}
+
+      # 8️⃣ Check for combined report
+      - name: Check for combined report
+        id: check_complete
+        run: |
+          if [ -f allure-report/complete.html ]; then echo "exists=true" >> $GITHUB_OUTPUT; else echo "exists=false" >> $GITHUB_OUTPUT; fi
+
+      # 9️⃣ Upload Final HTML Report
+      - name: Upload Final HTML Report
+        if: steps.check_complete.outputs.exists == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-report-complete-html
+          path: allure-report/complete.html
+
+      # 🔟 Fallback
+      - name: Upload Allure raw results fallback
+        if: steps.check_complete.outputs.exists == 'false'
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-results
+          path: allure-results
